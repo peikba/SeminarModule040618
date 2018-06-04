@@ -1,0 +1,23 @@
+{
+  "id": "bdc2a839-b974-4249-bcae-c843b0f591ad",
+  "name": "Solution Module",
+  "publisher": "D. E. Veloper",
+  "brief": "",
+  "description": "Hello World",
+  "version": "1.0.0.0",
+  "compatibilityId": "1.0.0.0",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "capabilities": [],
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "11.0.0.0",
+  "application": "11.0.0.0",
+  "idRange": {
+    "from": 50100,
+    "to": 50149
+  }
+}
