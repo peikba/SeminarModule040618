@@ -80,7 +80,7 @@ codeunit 123456700 "Seminar-Post"
                 // Post seminar room to seminar ledger 
                 PostSeminarJnlLine(1); // Room
 
-                SetAllowDelete(true);
+                //SetAllowDelete(true);
                 Delete(true);
             end;
         end;

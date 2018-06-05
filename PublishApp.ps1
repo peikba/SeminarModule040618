@@ -7,3 +7,5 @@ Publish-NAVApp -ServerInstance DynamicsNAV110 -Path "C:\Users\Admin\Desktop\D. E
 Install-NAVApp -ServerInstance DynamicsNAV110 -Name "Solution Module"
 Uninstall-NAVApp  -ServerInstance DynamicsNAV110 -Name "Solution Module" -DoNotSaveData 
 Unpublish-NAVApp -ServerInstance DynamicsNAV110 -Name "Solution Module" 
+Sync-NAVTenant -ServerInstance DynamicsNAV110
+Sync-NAVApp -ServerInstance DynamicsNAV110 -Name "Solution Module" -Mode Clean

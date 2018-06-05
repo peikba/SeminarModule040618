@@ -3,8 +3,13 @@ table 123456710 "Seminar Registration Header"
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 6 - Lab 1-3 & Lab 1-4
     //     - Created new table
+    //   Chapter 8 - Lab 2-3
+    //     - Added LookupId and DrillDownPageId
+    //   Chapter 9 - Lab 1-1
+    //     - Added Field "No. Printed"
     Caption = 'Seminar Registration Header';
-
+    LookupPageId="Posted Seminar Reg. List";
+    DrillDownPageId="Posted Seminar Reg. List";
 
     Fields
     {
@@ -288,6 +293,11 @@ table 123456710 "Seminar Registration Header"
         {
             Caption = 'Posting No.';
         }
+        field(40;"No. Printed";Integer)
+        {
+            Caption='No. Printed';
+            Editable=false;
+        }
     }
 
     keys
@@ -316,11 +326,10 @@ table 123456710 "Seminar Registration Header"
         Text004: Label 'This Seminar is for %1 participants. \The selected Room has a maximum of %2 participants \Do you want to change %3 for the Seminar from %4 to %5?';
         Text005: Label 'Should the new %1 be copied to all %2 that are not yet invoiced?';
         Text006: Label 'You cannot delete the Seminar Registration, because there is at least one %1.';
-        AllowDelete : Boolean;
 
     trigger OnDelete();
     begin
-        if Not AllowDelete then 
+        if (CurrFieldNo>0) then 
           TestField(Status,Status::Canceled);
         SeminarRegLine.Reset;
         SeminarRegLine.SetRange("Document No.", "No.");
@@ -353,6 +362,11 @@ table 123456710 "Seminar Registration Header"
             NoSeriesMgt.InitSeries(SeminarSetup."Seminar Registration Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
         initrecord;
+        // >> Lab 8-1
+        if GetFilter("Seminar No.") <>'' then
+            if GetRangeMin("Seminar No.") = GetRangeMax("Seminar No.") then
+                Validate("Seminar No.",GetRangeMin("Seminar No."));
+        // << Lab 8-1
     end;
 
     local procedure InitRecord();
@@ -379,13 +393,6 @@ table 123456710 "Seminar Registration Header"
                 exit(true);
             end;
         end;
-    end;
-
-    procedure SetAllowDelete(inAllowDelete : Boolean);
-    var
-        myInt : Integer;
-    begin
-        AllowDelete:=inAllowDelete;
     end;
 }
 
