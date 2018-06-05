@@ -4,8 +4,8 @@
   "publisher": "D. E. Veloper",
   "brief": "",
   "description": "Hello World",
-  "version": "1.0.0.0",
-  "compatibilityId": "1.0.0.0",
+  "version": "2.0.0.0",
+  "compatibilityId": "2.0.0.0",
   "privacyStatement": "",
   "EULA": "",
   "help": "",
@@ -14,9 +14,11 @@
   "capabilities": [],
   "dependencies": [],
   "screenshots": [],
+  "target": "Internal",
+  "showMyCode": true,
   "platform": "11.0.0.0",
   "application": "11.0.0.0",
-  "showMyCode": true,
+  "features": "TranslationFile",
   "idRange": {
     "from": 123456700,
     "to": 123456799
